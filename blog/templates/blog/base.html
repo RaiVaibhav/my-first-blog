@@ -11,6 +11,9 @@
         <div class="page-header">
           {% if user.is_authenticated %}
           <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+          {% else %}
+          <a href ='login' class="top-menu">Login</a>
+          <a href = 'register' class="top-menu">Register /</a>
           {% endif %}
             <h1><a href="/">My First Blog</a></h1>
         </div>
