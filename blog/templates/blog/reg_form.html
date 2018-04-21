@@ -1,16 +1,19 @@
-<!DOCTYPE html>
-<html>
-<body>
-
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
-<div class ="container">
+{% extends 'blog/base.html' %}
+{% block title %}
+  <title>Register</title>
+{% endblock %}
+{% block page-header %}
+{% endblock %}
+{% load material_form %}
+{% block content %}
+<div class ="container-fluid">
+	<div class="col-sm-10 ">
 	<h1> Register </h1>
-	<form method="post">
-		{% csrf_token %}
-		{{ form.as_ul}}
-		<button type = "submit">Submit</button>
-	</form>
+		<form method="POST">
+			{% csrf_token %}
+			{% form form=form %}{% endform %}
+			<button type="submit" name="_submit" class="btn">Submit</button>
+		</form>
+	</div>
 </div>
-</body>
-</html>
+{% endblock %}
