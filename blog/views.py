@@ -5,6 +5,7 @@ from .forms import PostForm
 from django.shortcuts import redirect, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
+from django.contrib.auth import logout
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -53,3 +54,7 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request, 'blog/reg_form.html', {'form': form})
+
+def logout_session(request):
+    logout(request)
+    return redirect('post_list')

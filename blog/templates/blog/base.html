@@ -15,20 +15,30 @@
         {% include 'material/includes/material_css.html' %}
         <script src="{% static 'material/js/jquery.js' %}"></script>
         {% include 'material/includes/material_js.html' %}
+        <!-- <style>
+        body {
+            background-color: #f1f1f1;
+        }
+        </style> -->
     </head>
     <body>
+
         {% block page-header %}
-        <div class="page-header">
+        <div class="page-header container navbar-fixed-top">
+          <h1><a href="/" class = "logo">All Post</a></h1>
+          <div class="header-right">
           {% if user.is_authenticated %}
-          <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+          <a href="{% url 'post_new' %}" class="active">New post </a>
+          <a href="{% url 'logout' %}">logout</a>
           {% else %}
-          <a href ='login' class="top-menu">Login</a>
-          <a href = 'register' class="top-menu">Register /</a>
+          <a href = '/register' class="active" class="active">Register </a>
+          <a href ="/login?next={{request.path}}">Login</a>
           {% endif %}
-            <h1><a href="/">All Post</a></h1>
+          </div>
+        </nav>
         </div>
         {% endblock %}
-        <div class="content container">
+        <div class="content container" style="margin-top:110px">
             <div class="row">
                 <div class="col-md-8">
                 {% block content %}

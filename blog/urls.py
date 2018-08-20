@@ -9,4 +9,5 @@ urlpatterns = [
     re_path(r'^post/(?P<pk>\d+)/edit/$', views.post_edit, name='post_edit'),
     re_path(r'^register/$', views.register, name='register'),
     re_path(r'^login/$',  LoginView.as_view(template_name='blog/login.html'), name="login"),
+    re_path(r'^logout/$', views.logout_session, name='logout')
 ]
