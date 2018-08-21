@@ -1,0 +1,9 @@
+{% extends 'blog/base.html' %}
+{% load material_form %}
+{% block content %}
+    <h1>New comment</h1>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {% form form=form %}{% endform %}
+        <button type="submit" style="color:black" class="save btn btn-default">Send</button>
+    </form>
+{% endblock %}
